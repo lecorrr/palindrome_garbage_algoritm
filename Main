@@ -1,0 +1,38 @@
+public class Main {
+	public static void main(String[] args) {
+		long max = 0;
+		long zd = 0;
+		for (long i = 1; i <= 99999; i++) {
+			for (long j = 1; j < 99999; j++) {
+				long q = j * i;
+				String g = Long.toString(q);
+				if (hzwat(g)) {
+					zd = j * i;
+				}
+				if (zd > max) {
+					max = zd;
+				}
+
+			}
+		}
+		System.out.println(max);
+	}
+
+	public static boolean hzwat(String y) {
+		char[] g = y.toCharArray();
+		long a = 0;
+		long b = g.length - 1;
+		long n = 0;
+		for (long i = 0; i <= g.length / 2; i++) {
+			if (g[(int) a] == g[(int) b]) {
+				n++;
+				a++;
+				b--;
+				if (n == g.length / 2) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+}
